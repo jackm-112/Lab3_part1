@@ -3,18 +3,33 @@
 
 #include <iostream>
 
+using namespace std;
+
+extern int dollar, quarter, dime, nickel, penny;
+int pennyAmt, nickelAmt, dimeAmt, quarterAmt, dollarAmt;
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    //asks the user for the # of pennies and writes it to variable pennyAmt
+    cout << "How many pennies did you pay with? (<=100) \n";
+    cin >> pennyAmt;
+
+    //the amount of each type of coin is calculated through integer division,
+    //and the pennyAmt variable is updated each time to reflect the # of pennies
+    //remaining.
+
+    dollarAmt = pennyAmt / dollar;
+    pennyAmt = pennyAmt % dollar;
+
+    quarterAmt = pennyAmt / quarter;
+    pennyAmt = pennyAmt % quarter;
+
+    dimeAmt = pennyAmt / dime;
+    pennyAmt = pennyAmt % dime;
+
+    nickelAmt = pennyAmt / nickel;
+    pennyAmt = pennyAmt % nickel;
+
+    //prints out the final totals of each coin type.
+    cout << "You paid using " << dollarAmt << " dollar(s), " << quarterAmt << " quarter(s), " << dimeAmt << " dime(s), " << nickelAmt << " nickel(S), and " << pennyAmt << " penny/pennies.";
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
